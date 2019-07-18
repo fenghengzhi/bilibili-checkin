@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "哔哩哔哩刷经验",
-    "slug": "bilibili-checkin",
-    "privacy": "public",
+    "slug": "bilibili_checkin",
+    "privacy": "unlisted",
     "sdkVersion": "33.0.0",
     "platforms": [
       "ios",
@@ -28,6 +28,10 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.bilibili.checkin",
+      "permissions": []
     }
   }
 }
