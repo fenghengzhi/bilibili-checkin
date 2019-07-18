@@ -4,8 +4,7 @@ import {createAppContainer, createStackNavigator} from "react-navigation";
 import Root from "@/Containers/Root";
 import CookieGet from "@/Containers/CookieGet";
 import Context from "@/Context";
-import {useState} from "react";
-import {useEffect} from "react";
+import {useState, useEffect} from "react";
 
 const AppNavigator = createStackNavigator({
     Root: {
