@@ -29,7 +29,7 @@ export default function RootStack() {
     const [cookie, setCookie] = useState('');
     useEffect(() => {
         (async () => {
-            const _cookie = await AsyncStorage.getItem('cookie') || '';
+            const _cookie = (await AsyncStorage.getItem('cookie')) || '';
             setCookie(_cookie)
         })();
     }, []);

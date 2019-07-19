@@ -62,13 +62,22 @@ export default function Root(props) {
                         // Toast.show('尝试投币');
                         {
                             // Toast.show('尝试投币');
+                            // break;
                             const params = new URLSearchParams();
                             params.append('aid', String(aid));
                             params.append('multiply', '1');
                             params.append('select_like', '0');
                             params.append('cross_domain', 'true');
                             params.append('csrf', Cookie.parse(cookie)['bili_jct']);
-                            await Axios.post('https://api.bilibili.com/x/web-interface/coin/add', params, {headers: {Cookie: cookie}});
+                            await Axios.post('https://api.bilibili.com/x/web-interface/coin/add', params, {
+                                headers: {
+                                    Cookie: cookie,
+                                    Host: 'api.bilibili.com',
+                                    Origin: 'https://www.bilibili.com',
+                                    Referer: `https://www.bilibili.com/video/av${aid}`
+                                }
+                            });
+                            // await Axios.post('https://api.bilibili.com/x/web-interface/coin/add',  {headers: {Cookie: cookie}});
                             // Toast.show(JSON.stringify(res.data));
                             // break;
                         }
@@ -80,6 +89,9 @@ export default function Root(props) {
                     }
                 } catch (e) {
                     Toast.show('出错了');
+                    // Toast.show(JSON.stringify(e));
+                    // console.error(e);
+                    // console.log(e.response);
                 }
 
                 // const test = new FormData();
