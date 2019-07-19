@@ -10,7 +10,7 @@
       "web"
     ],
     "packagerOpts": {
-      "port": 5388,
+      "port": 5388
     },
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,7 +21,9 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "enabled": false,
+      "checkAutomatically": "ON_ERROR_RECOVERY"
     },
     "assetBundlePatterns": [
       "**/*"

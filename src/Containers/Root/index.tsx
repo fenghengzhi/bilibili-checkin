@@ -46,8 +46,8 @@ export default function Root(props) {
                                 return;
                             }
                         }
-                        // const aid = Math.floor(Math.random() * 60000000);
-                        const aid = 200938;
+                        const aid = Math.floor(Math.random() * 60000000);
+                        // const aid = 200938;
                         // Toast.show(`aid${aid}`);
                         {
                             const params = new URLSearchParams();
@@ -68,7 +68,7 @@ export default function Root(props) {
                             params.append('select_like', '0');
                             params.append('cross_domain', 'true');
                             params.append('csrf', Cookie.parse(cookie)['bili_jct']);
-                            await Axios.post('https://api.bilibili.com/x/web-interface/coin/add', params, {headers: {Referer: 'https://www.bilibili.com/'}});
+                            await Axios.post('https://api.bilibili.com/x/web-interface/coin/add', params, {headers: {Cookie: cookie}});
                             // Toast.show(JSON.stringify(res.data));
                             // break;
                         }
