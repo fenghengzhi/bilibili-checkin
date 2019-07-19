@@ -52,9 +52,9 @@ export default function Root(props) {
                         {
                             const params = new URLSearchParams();
                             params.append('aid', String(aid));
-                            const res = await Axios.get<API>('http://api.bilibili.com/archive_stat/stat', {params});
+                            const res = await Axios.get<API>('https://api.bilibili.com/archive_stat/stat', {params});
                             if (res.data.code !== 0) {
-                                // continue;
+                                continue;
                             }
 
                             // Toast.show(`视频详情${JSON.stringify(res.data)}`);
