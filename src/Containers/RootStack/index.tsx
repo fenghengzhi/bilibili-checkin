@@ -1,10 +1,11 @@
 import * as React from "react";
-import {AsyncStorage, StatusBar} from "react-native";
+import {StatusBar} from "react-native";
 import {createAppContainer, createStackNavigator} from "react-navigation";
 import Root from "@/Containers/Root";
 import CookieGet from "@/Containers/CookieGet";
 import Context from "@/Context";
 import {useState, useEffect} from "react";
+import AsyncStorage from '@react-native-community/async-storage';
 
 const AppNavigator = createStackNavigator({
     Root: {
