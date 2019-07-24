@@ -9,7 +9,7 @@
     "build:android": "expo-cli build:android",
     "build:ios": "expo-cli build:ios",
     "publish": "expo-cli publish",
-    "exp-minify-start": "expo-cli start --no-dev --minify --clear",
+    "exp-minify-start": "expo-cli start --max-workers 4 --no-dev --minify --clear",
     "exp-start": "expo-cli start --max-workers 4 --no-minify --dev -a --clear"
   },
   "dependencies": {
