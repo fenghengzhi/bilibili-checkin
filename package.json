@@ -10,7 +10,7 @@
     "build:ios": "expo-cli build:ios",
     "publish": "expo-cli publish",
     "exp-minify-start": "expo-cli start --no-dev --minify --clear",
-    "exp-start": "expo-cli start --minify --dev -a --clear"
+    "exp-start": "expo-cli start --max-workers 4 --no-minify --dev -a --clear"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -34,7 +34,7 @@
     "@types/react-navigation": "^3.0.7",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-expo": "^5.1.1",
-    "expo-cli": "^3.0.2",
+    "expo-cli": "^3.0.4",
     "typescript": "^3.4.5"
   },
   "private": true

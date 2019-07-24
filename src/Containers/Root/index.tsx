@@ -96,17 +96,10 @@ export default function Root(props) {
 
                 // const test = new FormData();
             }}/>
-            <View style={{height: 20,}}/>
-            <Button title="测试按钮" onPress={() => {
-                // bili_jct
-                // tough.Cookie.parse(cookie).toJSON();
-
-                // cookie.parse('foo=bar; equation=E%3Dmc%5E2')
-                // Toast.show();
-                // Toast.show(JSON.stringify(tough.Cookie.parse(cookie,{loose:true}).toJSON()['bili_jct']));
-
-
-                // cookieParser()
-            }}/>
+            {__DEV__ &&
+            <React.Fragment>
+                <View style={{height: 20,}}/>
+                < Button title="测试按钮"/>
+            </React.Fragment>}
         </View>);
 }
