@@ -10,3 +10,5 @@ web-build/
 web-report/
 .idea/*
 .idea/
+yarn.lock
+yarn-error.log

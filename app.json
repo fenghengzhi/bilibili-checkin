@@ -3,7 +3,7 @@
     "name": "哔哩哔哩刷经验",
     "slug": "bilibili_checkin",
     "privacy": "unlisted",
-    "sdkVersion": "33.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
