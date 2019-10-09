@@ -16,10 +16,12 @@ function sleep(ms) {
 }
 
 export default function Root(props) {
-    const {cookie} = useContext(Context);
+    const {cookie,getCookie} = useContext(Context);
     return (
         <View style={{justifyContent: 'center', flex: 1}}>
             <Text>cookie:{cookie}</Text>
+            <View style={{height: 20}}/>
+            <Button title="读取storage" onPress={getCookie}/>
             <View style={{height: 20}}/>
             <Button title="获取登录态" onPress={() => props.navigation.push('CookieGet')}/>
             <View style={{height: 20}}/>

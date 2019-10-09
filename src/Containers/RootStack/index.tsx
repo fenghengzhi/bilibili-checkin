@@ -1,6 +1,7 @@
 import * as React from "react";
 import {StatusBar, AsyncStorage} from "react-native";
-import {createAppContainer, createStackNavigator} from "react-navigation";
+import {createAppContainer} from "react-navigation";
+import {createStackNavigator} from "react-navigation-stack";
 import Root from "@/Containers/Root";
 import CookieGet from "@/Containers/CookieGet";
 import Context from "@/Context";
@@ -28,14 +29,17 @@ const AppContainer = createAppContainer(AppNavigator);
 export default function RootStack() {
     const [cookie, setCookie] = useState('');
     useEffect(() => {
-        (async () => {
-            const _cookie = (await AsyncStorage.getItem('cookie')) || '';
-            setCookie(_cookie)
-        })();
+        getCookie();
     }, []);
+
+    async function getCookie() {
+        const _cookie = (await AsyncStorage.getItem('cookie')) || '';
+        setCookie(_cookie)
+    }
+
     return (
         <Context.Provider value={{
-            cookie, setCookie(value: string) {
+            cookie, getCookie, setCookie(value: string) {
                 setCookie(value);
                 return AsyncStorage.setItem('cookie', value);
             }
