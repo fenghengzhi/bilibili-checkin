@@ -16,7 +16,7 @@ function sleep(ms) {
 }
 
 export default function Root(props) {
-    const {cookie,getCookie} = useContext(Context);
+    const {cookie, getCookie} = useContext(Context);
     return (
         <View style={{justifyContent: 'center', flex: 1}}>
             <Text>cookie:{cookie}</Text>
@@ -40,15 +40,28 @@ export default function Root(props) {
             <Button title="尝试签到" onPress={async () => {
                 try {
                     while (true) {
+                        let lastAid: number;
                         // sleep(1000);
                         {
                             const res = await Axios.get <API & { number: number }>('https://www.bilibili.com/plus/account/exp.php', {headers: {Cookie: cookie}});
                             if (res.data.code === 0 && res.data.number === 50) {
+                                const params = new URLSearchParams();
+                                params.append('aid', String(lastAid));
+                                params.append('csrf', Cookie.parse(cookie)['bili_jct']);
+                                Axios.post('https://api.bilibili.com/x/web-interface/share/add',params,{
+                                    headers: {
+                                        Cookie: cookie,
+                                        Host: 'api.bilibili.com',
+                                        Origin: 'https://www.bilibili.com',
+                                        Referer: `https://www.bilibili.com/video/av${lastAid}`
+                                    }
+                                });
                                 Toast.show('已投满');
                                 return;
                             }
                         }
                         const aid = Math.floor(Math.random() * 60000000);
+                        lastAid = aid;
                         // const aid = 200938;
                         // Toast.show(`aid${aid}`);
                         {
